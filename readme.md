@@ -1,7 +1,14 @@
 ●●●Tổng hợp những lệnh cần khi sử dụng git●●●
 
-Chương 1 : tổng hợp các lệnh và giải thích 
-//@Khoi Vuong
+Chương 1 : tổng hợp các lệnh và giải thích
+1- git init: khoi tao repository
+2- git clone copy các repo từ serve
+3- git pull cap nhat du lieu mới từ kho ở remote về kho local
+4- git add thêm file mới
+5- git commit luu vào csdl nội dung mơi câp nhật
+6- git push đưa nội dung mới lên repo
+7- git log xem lại lịch sử commit
+8- git branch tạo một branch mới song song
 
 Chương 2: Guideline Merge to local main 
 //@Nguyên Trần
