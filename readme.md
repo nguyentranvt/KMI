@@ -13,7 +13,7 @@ Chương 1 : tổng hợp các lệnh và giải thích
 Chương 2: Guideline Merge to local main 
 //@Nguyên Trần
 1. On the main branch: git merge 'branch name'
-2. Git add. (if there's new content in the branches)
+2. Git add. (if there's a new content in a branch)
 3. Git commit
 Chương 3: Guideline để update main mới nhất lên github repository 
 //@Lee Duy
