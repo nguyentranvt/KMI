@@ -9,3 +9,6 @@ func main() {
 func AddAtoB(ANumber int, BNumber int) int {
 	return ANumber + BNumber
 }
+func PrintHelloWorld()string{
+	return "Hello World"
+} 
