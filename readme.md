@@ -15,7 +15,8 @@ Chương 2: Guideline Merge to local main
 1. On the main branch: git merge 'branch name'
 2. Git add. (if there's a new content in a branch)
 3. Git commit
-
+4. git checkout vào  branch cần được cập nhât
+5, dùng lệnh merge để chọn branch
 Chương 3: Guideline để update main mới nhất lên github repository 
 //@Lee Duy
 ①Save lại nội dung đã chỉnh sửa trên file.
