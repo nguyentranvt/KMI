@@ -35,3 +35,7 @@ func PrintAddress(Number int, Address string) string {
 	ValueAfterConvert1 := strconv.Itoa(Number)
 	return "Dia chi: " + Address + " So nha: " + ValueAfterConvert1
 }
+
+func PrintTellNumber(Number string) string {
+	return "So dien thoai: " + Number
+}

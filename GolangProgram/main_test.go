@@ -91,3 +91,29 @@ func TestPrintAddress(t *testing.T) {
 		})
 	}
 }
+
+func TestPrintTellNumber(t *testing.T) {
+	type args struct {
+		Number string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		{
+			name: "Happy case 5",
+			args: args{
+				Number: "0123456789",
+			},
+			want: "So dien thoai: 0123456789",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintTellNumber(tt.args.Number); got != tt.want {
+				t.Errorf("PrintTellNumber() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
