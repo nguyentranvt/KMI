@@ -1,6 +1,7 @@
 Nội dung bài tập
 In ra màn hình thông tin cá nhân như sau 
 ==============================
+<<<<<<< HEAD
 Họ và tên: Nguyễn Văn A
 Ngày sinh: 01/01/1990
 Địa chỉ: Hà Nội
@@ -20,3 +21,11 @@ func main() {
     city, _ := reader.ReadString('\n')
     fmt.Print("You live in " + city)
 }
+=======
+Họ và tên: Nguyễn Văn A @khoi
+Ngày sinh: 01/01/1990 @khoi
+Địa chỉ: Hà Nội @Duy
+Số điện thoại: 0123456789 @Duy
+Thanh vien nhom: 1 @Nguyen
+Gioi tinh: Nam @Nguyen
+>>>>>>> 90ba84ea96cd14b85c376c7cddfcde9889ed1539
