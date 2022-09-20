@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 )
 
 func main() {
@@ -23,4 +24,9 @@ func PrintHelloWorld() string {
 }
 func PrintName(Name string) string {
 	return "Ho va ten " + Name
+}
+
+func PrintTeamNumber(Number int) string {
+	ValueAfterConvert := strconv.Itoa(Number)
+	return "Thanh vien nhom " + ValueAfterConvert
 }
