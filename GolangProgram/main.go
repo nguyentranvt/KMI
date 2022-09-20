@@ -30,3 +30,8 @@ func PrintTeamNumber(Number int) string {
 	ValueAfterConvert := strconv.Itoa(Number)
 	return "Thanh vien nhom " + ValueAfterConvert
 }
+
+func PrintAddress(Number int, Address string) string {
+	ValueAfterConvert1 := strconv.Itoa(Number)
+	return "Dia chi: " + Address + " So nha: " + ValueAfterConvert1
+}
