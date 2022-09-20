@@ -6,3 +6,17 @@ Ngày sinh: 01/01/1990
 Địa chỉ: Hà Nội
 Số điện thoại: 0123456789
 Thanh vien nhom: 1
+package main
+
+import (
+    "bufio"
+    "fmt"
+    "os"
+)
+
+func main() {
+    reader := bufio.NewReader(os.Stdin)
+    fmt.Print("Enter your city: ")
+    city, _ := reader.ReadString('\n')
+    fmt.Print("You live in " + city)
+}
