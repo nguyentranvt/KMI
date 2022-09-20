@@ -1,11 +1,20 @@
 package main
 
-func main() {
-	result := AddAtoB(1, 2)
-	//print the result
-	println(result)
-}
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
 
+func main() {
+
+}
+func ReadKeyboard() string {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Enter your city: ")
+	city, _ := reader.ReadString('\n')
+	return city
+}
 func AddAtoB(ANumber int, BNumber int) int {
 	return ANumber + BNumber
 }
