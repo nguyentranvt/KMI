@@ -22,7 +22,8 @@ func AddAtoB(ANumber int, BNumber int) int {
 func PrintHelloWorld() string {
 	return "Hello World"
 }
-func PrintName(Name string) string {
+func Print
+Name(Name string) string {
 	return "Ho va ten " + Name
 }
 
