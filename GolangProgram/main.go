@@ -1,21 +1,11 @@
 package main
 
-<<<<<<< HEAD
 import (
 	"bufio"
 	"fmt"
 	"os"
 	"strconv"
 )
-=======
-func main() {
-	result := AddAtoB(1, 2)
-	//print the result
-	println(result)
-	ResultNewValue := PrintHelloWorld()
-	println(ResultNewValue)
-}
->>>>>>> Khoibranch
 
 func main() {
 
@@ -29,12 +19,10 @@ func ReadKeyboard() string {
 func AddAtoB(ANumber int, BNumber int) int {
 	return ANumber + BNumber
 }
-<<<<<<< HEAD
 func PrintHelloWorld() string {
 	return "Hello World"
 }
-func Print
-Name(Name string) string {
+func PrintName(Name string) string {
 	return "Ho va ten " + Name
 }
 
@@ -59,8 +47,3 @@ func PrintTellNumber(Number string) string {
 func PrintReview(Review string) string {
 	return "Review của sếp: " + Review
 }
-=======
-func PrintHelloWorld()string{
-	return "Hello World Viet Nam"
-} 
->>>>>>> Khoibranch
