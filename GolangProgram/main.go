@@ -43,3 +43,7 @@ func PrintSex(Sex string) string {
 func PrintTellNumber(Number string) string {
 	return "So dien thoai: " + Number
 }
+
+func PrintReview(Review string) string {
+	return "Review của sếp: " + Review
+}

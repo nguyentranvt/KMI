@@ -144,3 +144,51 @@ func TestPrintSex(t *testing.T) {
 		})
 	}
 }
+
+func TestPrintReview(t *testing.T) {
+	type args struct {
+		Review string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		// TODO: Add test cases.
+		{
+			name: "Happy case 7",
+			args: args{
+				Review: "Mê gái",
+			},
+			want: "Review của sếp: Mê gái",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintReview(tt.args.Review); got != tt.want {
+				t.Errorf("PrintReview() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestPrintUpdateTime(t *testing.T) {
+	type args struct {
+		Time int
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		// TODO: Add test cases.
+
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintUpdateTime(tt.args.Time); got != tt.want {
+				t.Errorf("PrintUpdateTime() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
