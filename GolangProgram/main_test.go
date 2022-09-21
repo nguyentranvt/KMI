@@ -172,23 +172,23 @@ func TestPrintReview(t *testing.T) {
 	}
 }
 
-func TestPrintUpdateTime(t *testing.T) {
-	type args struct {
-		Time int
-	}
-	tests := []struct {
-		name string
-		args args
-		want string
-	}{
-		// TODO: Add test cases.
+// func TestPrintUpdateTime(t *testing.T) {
+// 	type args struct {
+// 		Time int
+// 	}
+// 	tests := []struct {
+// 		name string
+// 		args args
+// 		want string
+// 	}{
+// 		// TODO: Add test cases.
 
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := PrintUpdateTime(tt.args.Time); got != tt.want {
-				t.Errorf("PrintUpdateTime() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
+// 	}
+// 	for _, tt := range tests {
+// 		t.Run(tt.name, func(t *testing.T) {
+// 			if got := PrintUpdateTime(tt.args.Time); got != tt.want {
+// 				t.Errorf("PrintUpdateTime() = %v, want %v", got, tt.want)
+// 			}
+// 		})
+// 	}
+// }
