@@ -117,3 +117,30 @@ func TestPrintTellNumber(t *testing.T) {
 		})
 	}
 }
+
+func TestPrintSex(t *testing.T) {
+	type args struct {
+		Sex string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		// TODO: Add test cases.
+		{
+			name: "Happy case 6",
+			args: args{
+				Sex: "Nam",
+			},
+			want: "Gioi tinh: Nam",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintSex(tt.args.Sex); got != tt.want {
+				t.Errorf("PrintSex() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
