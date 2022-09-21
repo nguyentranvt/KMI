@@ -8,8 +8,11 @@ import (
 )
 
 func main() {
-
+	fmt.Print("Enter your city: \n")
+	BufferValue := PrintMyName("huynh bao toan: \n")
+	fmt.Print(BufferValue)
 }
+
 func ReadKeyboard() string {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("Enter your city: ")
@@ -46,4 +49,7 @@ func PrintTellNumber(Number string) string {
 
 func PrintReview(Review string) string {
 	return "Review của sếp: " + Review
+}
+func PrintMyName(ten string) string {
+	return "toi ten la: " + ten
 }

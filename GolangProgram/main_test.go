@@ -192,3 +192,35 @@ func TestPrintReview(t *testing.T) {
 // 		})
 // 	}
 // }
+
+func TestPrintMyName(t *testing.T) {
+	type args struct {
+		ten string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		{
+			name: "Happy case 1",
+			args: args{
+				ten: "huynh bao toan",
+			},
+			want: "toi ten la: huynh bao toan",
+		}, {
+			name: "Happy case 2",
+			args: args{
+				ten: "pham minh duc",
+			},
+			want: "toi ten la: pham minh duc",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintMyName(tt.args.ten); got != tt.want {
+				t.Errorf("PrintMyName() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
