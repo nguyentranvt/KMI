@@ -1,31 +1,21 @@
 Nội dung bài tập
 In ra màn hình thông tin cá nhân như sau 
-==============================
-<<<<<<< HEAD
-Họ và tên: Nguyễn Văn A
-Ngày sinh: 01/01/1990
-Địa chỉ: Hà Nội
-Số điện thoại: 0123456789
-Thanh vien nhom: 1
-package main
 
-import (
-    "bufio"
-    "fmt"
-    "os"
-)
-
-func main() {
-    reader := bufio.NewReader(os.Stdin)
-    fmt.Print("Enter your city: ")
-    city, _ := reader.ReadString('\n')
-    fmt.Print("You live in " + city)
-}
-=======
 Họ và tên: Nguyễn Văn A @khoi
 Ngày sinh: 01/01/1990 @khoi
 Địa chỉ: Hà Nội @Duy
 Số điện thoại: 0123456789 @Duy
 Thanh vien nhom: 1 @Nguyen
 Gioi tinh: Nam @Nguyen
->>>>>>> 90ba84ea96cd14b85c376c7cddfcde9889ed1539
+Sở thích : football, swimming @khoi
+email: nguyenvana@gmial.com @khoi
+Ngoại ngữ: English, Japanese @khoi
+Tình trạng hôn nhân: Độc thân@khoi
+Số lượng bạn gái hiện tại: 3 @Duy
+Giới thiệu bản thân: Yêu màu tím v.v... @Duy
+Sếp hiện tại: Duy minh @Duy
+Email sếp: Duyminh@gmail.com @Duy
+Review của sếp: Mê gái v.v.... @Nguyen
+Công ty yêu thích: Playboy @Nguyen
+Thời gian cập nhật: 2022/09/21 21:00 @Nguyen
+Thời gian rảnh trong tuần: Mon 17:00-19:00,Tus 17:00-19:00  @Nguyen
