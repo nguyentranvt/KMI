@@ -92,6 +92,32 @@ func TestPrintAddress(t *testing.T) {
 	}
 }
 
+func TestPrintTellNumber(t *testing.T) {
+	type args struct {
+		Number string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		{
+			name: "Happy case 5",
+			args: args{
+				Number: "0123456789",
+			},
+			want: "So dien thoai: 0123456789",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintTellNumber(tt.args.Number); got != tt.want {
+				t.Errorf("PrintTellNumber() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
 func TestPrintSex(t *testing.T) {
 	type args struct {
 		Sex string
@@ -114,6 +140,54 @@ func TestPrintSex(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := PrintSex(tt.args.Sex); got != tt.want {
 				t.Errorf("PrintSex() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestPrintReview(t *testing.T) {
+	type args struct {
+		Review string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		// TODO: Add test cases.
+		{
+			name: "Happy case 7",
+			args: args{
+				Review: "Mê gái",
+			},
+			want: "Review của sếp: Mê gái",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintReview(tt.args.Review); got != tt.want {
+				t.Errorf("PrintReview() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestPrintUpdateTime(t *testing.T) {
+	type args struct {
+		Time int
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		// TODO: Add test cases.
+
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintUpdateTime(tt.args.Time); got != tt.want {
+				t.Errorf("PrintUpdateTime() = %v, want %v", got, tt.want)
 			}
 		})
 	}

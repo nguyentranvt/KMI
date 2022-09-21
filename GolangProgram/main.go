@@ -36,6 +36,15 @@ func PrintAddress(Number int, Address string) string {
 	ValueAfterConvert1 := strconv.Itoa(Number)
 	return "Dia chi: " + Address + " So nha: " + ValueAfterConvert1
 }
+
 func PrintSex(Sex string) string {
 	return "Gioi tinh: " + Sex
+}
+
+func PrintTellNumber(Number string) string {
+	return "So dien thoai: " + Number
+}
+
+func PrintReview(Review string) string {
+	return "Review của sếp: " + Review
 }
