@@ -53,3 +53,16 @@ func PrintReview(Review string) string {
 func PrintMyName(ten string) string {
 	return "toi ten la: " + ten
 }
+func PrintGirlFriendCurrentNumber(GirlFrendNumber int) string {
+	ValueAfterConvert2 := strconv.Itoa(GirlFrendNumber)
+	return "Số lượng bạn gái hiện tại: " + ValueAfterConvert2
+}
+func PrintIntroduce(Introduce string) string {
+	return "Giới thiệu bản thân: " + Introduce
+}
+func PrintManager(Manager string) string {
+	return "Sếp hiện tại: " + Manager
+}
+func PrintManagerEmail(ManagerEmail string) string {
+	return "Email sếp: " + ManagerEmail
+}

@@ -224,3 +224,107 @@ func TestPrintMyName(t *testing.T) {
 		})
 	}
 }
+
+func TestPrintGirlFriendCurrentNumber(t *testing.T) {
+	type args struct {
+		GirlFrendNumber int
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		{
+			name: "Happy case 8",
+			args: args{
+				GirlFrendNumber: 3,
+			},
+			want: "Số lượng bạn gái hiện tại: 3",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintGirlFriendCurrentNumber(tt.args.GirlFrendNumber); got != tt.want {
+				t.Errorf("PrintGirlFriendCurrentNumber() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestPrintIntroduce(t *testing.T) {
+	type args struct {
+		Introduce string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		{
+			name: "Happy case 9",
+			args: args{
+				Introduce: "Yêu màu tím, thích đạp xe dưới mưa",
+			},
+			want: "Giới thiệu bản thân: Yêu màu tím, thích đạp xe dưới mưa",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintIntroduce(tt.args.Introduce); got != tt.want {
+				t.Errorf("PrintIntroduce() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestPrintManager(t *testing.T) {
+	type args struct {
+		Manager string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		{
+			name: "Happy case 10",
+			args: args{
+				Manager: "Duy Minh",
+			},
+			want: "Sếp hiện tại: Duy Minh",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintManager(tt.args.Manager); got != tt.want {
+				t.Errorf("PrintManager() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestPrintManagerEmail(t *testing.T) {
+	type args struct {
+		ManagerEmail string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		{
+			name: "Happy case 11",
+			args: args{
+				ManagerEmail: "Duyminh@gmail.com",
+			},
+			want: "Email sếp: Duyminh@gmail.com",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintManagerEmail(tt.args.ManagerEmail); got != tt.want {
+				t.Errorf("PrintManagerEmail() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
