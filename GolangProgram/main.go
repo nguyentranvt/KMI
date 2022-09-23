@@ -66,3 +66,6 @@ func PrintManager(Manager string) string {
 func PrintManagerEmail(ManagerEmail string) string {
 	return "Email sếp: " + ManagerEmail
 }
+func PrintDate(Date string) string {
+	return "Ngay sinh: " + Date
+}

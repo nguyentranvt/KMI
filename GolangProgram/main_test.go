@@ -1,6 +1,7 @@
 package main
 
 import (
+	"reflect"
 	"testing"
 )
 
@@ -324,6 +325,33 @@ func TestPrintManagerEmail(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := PrintManagerEmail(tt.args.ManagerEmail); got != tt.want {
 				t.Errorf("PrintManagerEmail() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestPrintDate(t *testing.T) {
+	type args struct {
+		Date string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		// TODO: Add test cases.
+		{
+			name: "Happy case 12",
+			args: args{
+				Date: "1-1-1991",
+			},
+			want: "Ngay sinh: 1-1-1991",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintDate(tt.args.Date); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("PrintDate() = %v, want %v", got, tt.want)
 			}
 		})
 	}
