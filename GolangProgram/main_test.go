@@ -174,7 +174,7 @@ func TestPrintReview(t *testing.T) {
 
 func TestPrintUpdateTime(t *testing.T) {
 	type args struct {
-		Time int
+		Time string
 	}
 	tests := []struct {
 		name string

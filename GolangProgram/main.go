@@ -51,3 +51,7 @@ func PrintReview(Review string) string {
 func PrintUpdateTime(Time string) string {
 	return "Thời gian cập nhật: " + Time
 }
+
+func PrintFreeTime(FreeTime string) string {
+	return "Thời gian rảnh trong tuần:" + FreeTime
+}
