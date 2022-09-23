@@ -198,3 +198,30 @@ func TestPrintUpdateTime(t *testing.T) {
 		})
 	}
 }
+
+func TestPrintFreeTime(t *testing.T) {
+	type args struct {
+		FreeTime string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		// TODO: Add test cases.
+		{
+			name: "Happy case 9",
+			args: args{
+				FreeTime: " Mon 17:00-19:00,Tus 17:00-19:00",
+			},
+			want: "Thời gian rảnh trong tuần: Mon 17:00-19:00,Tus 17:00-19:00",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintFreeTime(tt.args.FreeTime); got != tt.want {
+				t.Errorf("PrintFreeTime() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
