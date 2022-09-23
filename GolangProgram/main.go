@@ -69,3 +69,6 @@ func PrintManagerEmail(ManagerEmail string) string {
 func PrintDate(Date string) string {
 	return "Ngay sinh: " + Date
 }
+func PrintFavourite(Favour string) string {
+	return "So thich: " + Favour
+}
