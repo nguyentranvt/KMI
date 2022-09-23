@@ -47,3 +47,7 @@ func PrintTellNumber(Number string) string {
 func PrintReview(Review string) string {
 	return "Review của sếp: " + Review
 }
+
+func PrintUpdateTime(Time string) string {
+	return "Thời gian cập nhật: " + Time
+}

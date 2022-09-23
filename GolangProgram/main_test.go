@@ -182,7 +182,13 @@ func TestPrintUpdateTime(t *testing.T) {
 		want string
 	}{
 		// TODO: Add test cases.
-
+		{
+			name: "Happy case 8",
+			args: args{
+				Time: "2022/09/21 21:00",
+			},
+			want: "Thời gian cập nhật: 2022/09/21 21:00",
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
