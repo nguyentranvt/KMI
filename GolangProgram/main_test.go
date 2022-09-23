@@ -416,3 +416,63 @@ func TestPrintYourEmail(t *testing.T) {
 		})
 	}
 }
+
+func TestPrintLanguage(t *testing.T) {
+	type args struct {
+		YourLanguage string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		// TODO: Add test cases.
+		{
+			name: "Happy case 16",
+			args: args{
+				YourLanguage: "English",
+			},
+			want: "Ngon ngu: English",
+		}, {
+			name: "Happy case 17",
+			args: args{
+				YourLanguage: "Japanese",
+			},
+			want: "Ngon ngu: Japanese",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintLanguage(tt.args.YourLanguage); got != tt.want {
+				t.Errorf("PrintLanguage() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestPrintMarried(t *testing.T) {
+	type args struct {
+		Answer string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		// TODO: Add test cases.
+		{
+			name: "Happy case 15",
+			args: args{
+				Answer: "Married",
+			},
+			want: "Hon nhan: Married",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintMarried(tt.args.Answer); got != tt.want {
+				t.Errorf("PrintMarried() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}

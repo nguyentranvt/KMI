@@ -75,3 +75,9 @@ func PrintFavourite(Favour string) string {
 func PrintYourEmail(YourEmail string) string {
 	return "Email cua ban: " + YourEmail
 }
+func PrintLanguage(YourLanguage string) string {
+	return "Ngon ngu: " + YourLanguage
+}
+func PrintMarried(Answer string) string {
+	return "Hon nhan: " + Answer
+}
