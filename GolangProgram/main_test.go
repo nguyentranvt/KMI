@@ -476,3 +476,29 @@ func TestPrintMarried(t *testing.T) {
 		})
 	}
 }
+
+func TestReadKeyboard(t *testing.T) {
+	tests := []struct {
+		name           string
+		wantName       string
+		wantTeamNumber int
+	}{
+		// TODO: Add test cases.
+		{
+			name:           "Happy case 15",
+			wantName:       "Duyminh",
+			wantTeamNumber: 1,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotName, gotTeamNumber := ReadKeyboard()
+			if gotName != tt.wantName {
+				t.Errorf("ReadKeyboard() gotName = %v, want %v", gotName, tt.wantName)
+			}
+			if gotTeamNumber != tt.wantTeamNumber {
+				t.Errorf("ReadKeyboard() gotTeamNumber = %v, want %v", gotTeamNumber, tt.wantTeamNumber)
+			}
+		})
+	}
+}

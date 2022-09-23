@@ -8,16 +8,21 @@ import (
 )
 
 func main() {
-	fmt.Print("Enter your city: \n")
-	BufferValue := PrintMyName("huynh bao toan: \n")
-	fmt.Print(BufferValue)
+	ReadKeyboard()
 }
 
-func ReadKeyboard() string {
+func ReadKeyboard() (Name string, TeamNumber int) {
 	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Enter your city: ")
-	city, _ := reader.ReadString('\n')
-	return city
+	fmt.Print("Please input Name: ")
+	NameValue, _ := reader.ReadString('\n')
+	reader = bufio.NewReader(os.Stdin)
+	fmt.Print("Please input Team Number: ")
+	TeamNumberValue, _ := reader.ReadString('\n')
+	//convert string to int
+	TeamNumber, _ = strconv.Atoi(TeamNumberValue)
+	fmt.Println("Name: ", NameValue)
+	fmt.Println("Team Number: ", TeamNumberValue)
+	return NameValue, TeamNumber
 }
 
 func PrintName(Name string) string {
