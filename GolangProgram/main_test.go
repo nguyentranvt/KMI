@@ -389,3 +389,30 @@ func TestPrintFavourite(t *testing.T) {
 		})
 	}
 }
+
+func TestPrintYourEmail(t *testing.T) {
+	type args struct {
+		YourEmail string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		// TODO: Add test cases.
+		{
+			name: "Happy case 15",
+			args: args{
+				YourEmail: "1234@exmaple.com",
+			},
+			want: "Email cua ban: 1234@exmaple.com",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintYourEmail(tt.args.YourEmail); got != tt.want {
+				t.Errorf("PrintYourEmail() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}

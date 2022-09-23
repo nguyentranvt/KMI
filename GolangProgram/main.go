@@ -72,3 +72,6 @@ func PrintDate(Date string) string {
 func PrintFavourite(Favour string) string {
 	return "So thich: " + Favour
 }
+func PrintYourEmail(YourEmail string) string {
+	return "Email cua ban: " + YourEmail
+}
