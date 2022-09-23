@@ -20,9 +20,6 @@ func ReadKeyboard() string {
 	return city
 }
 
-func PrintHelloWorld() string {
-	return "Hello World"
-}
 func PrintName(Name string) string {
 	return "Ho va ten " + Name
 }
