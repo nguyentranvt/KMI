@@ -16,3 +16,11 @@ func PrintHelloWorld() string {
 	return "Hello Cac em"
 
 }
+
+func PrintUpdateTime(Time string) string {
+	return "Thời gian cập nhật: " + Time
+}
+
+func PrintFreeTime(FreeTime string) string {
+	return "Thời gian rảnh trong tuần:" + FreeTime
+}
