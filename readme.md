@@ -4,7 +4,7 @@
 3. Trên branch origin/main tạo ra branch mới với tên branch là tên cộng với ngày làm việc
     Ví dụ: Người làm việc là Nguyên, và ngày là 27/09 thì tạo branch là: Nguyen2709
 4. Chuyển qua branch vừa mới tạo và bắt đầu phiên làm việc.
-5. Sau khi hoàn thành cập nhật thì dùng lệnh [git push] update lên hệ thống
+5. Sau khi hoàn thành cập nhật thì dùng lệnh [git push --set-upstream] update lên hệ thống
 6. Dùng lệnh [git fetch] để load file origin/main mới nhất về
 7. Dùng lệnh [git checkout origin/main] chuyển qua branch origin/main
 8. Dùng lệnh merge để merge branch mới tạo vào branch origin/main
