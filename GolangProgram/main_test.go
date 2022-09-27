@@ -1,6 +1,7 @@
 package main
 
 import (
+	"reflect"
 	"testing"
 )
 
@@ -172,9 +173,170 @@ func TestPrintReview(t *testing.T) {
 	}
 }
 
-func TestPrintUpdateTime(t *testing.T) {
+// func TestPrintUpdateTime(t *testing.T) {
+// 	type args struct {
+// 		Time int
+// 	}
+// 	tests := []struct {
+// 		name string
+// 		args args
+// 		want string
+// 	}{
+// 		// TODO: Add test cases.
+
+// 	}
+// 	for _, tt := range tests {
+// 		t.Run(tt.name, func(t *testing.T) {
+// 			if got := PrintUpdateTime(tt.args.Time); got != tt.want {
+// 				t.Errorf("PrintUpdateTime() = %v, want %v", got, tt.want)
+// 			}
+// 		})
+// 	}
+// }
+
+func TestPrintMyName(t *testing.T) {
 	type args struct {
+<<<<<<< HEAD
 		Time string
+=======
+		ten string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		{
+			name: "Happy case 1",
+			args: args{
+				ten: "huynh bao toan",
+			},
+			want: "toi ten la: huynh bao toan",
+		}, {
+			name: "Happy case 2",
+			args: args{
+				ten: "pham minh duc",
+			},
+			want: "toi ten la: pham minh duc",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintMyName(tt.args.ten); got != tt.want {
+				t.Errorf("PrintMyName() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestPrintGirlFriendCurrentNumber(t *testing.T) {
+	type args struct {
+		GirlFrendNumber int
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		{
+			name: "Happy case 8",
+			args: args{
+				GirlFrendNumber: 3,
+			},
+			want: "Số lượng bạn gái hiện tại: 3",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintGirlFriendCurrentNumber(tt.args.GirlFrendNumber); got != tt.want {
+				t.Errorf("PrintGirlFriendCurrentNumber() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestPrintIntroduce(t *testing.T) {
+	type args struct {
+		Introduce string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		{
+			name: "Happy case 9",
+			args: args{
+				Introduce: "Yêu màu tím, thích đạp xe dưới mưa",
+			},
+			want: "Giới thiệu bản thân: Yêu màu tím, thích đạp xe dưới mưa",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintIntroduce(tt.args.Introduce); got != tt.want {
+				t.Errorf("PrintIntroduce() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestPrintManager(t *testing.T) {
+	type args struct {
+		Manager string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		{
+			name: "Happy case 10",
+			args: args{
+				Manager: "Duy Minh",
+			},
+			want: "Sếp hiện tại: Duy Minh",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintManager(tt.args.Manager); got != tt.want {
+				t.Errorf("PrintManager() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestPrintManagerEmail(t *testing.T) {
+	type args struct {
+		ManagerEmail string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		{
+			name: "Happy case 11",
+			args: args{
+				ManagerEmail: "Duyminh@gmail.com",
+			},
+			want: "Email sếp: Duyminh@gmail.com",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintManagerEmail(tt.args.ManagerEmail); got != tt.want {
+				t.Errorf("PrintManagerEmail() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestPrintDate(t *testing.T) {
+	type args struct {
+		Date string
+>>>>>>> origin/main
 	}
 	tests := []struct {
 		name string
@@ -183,17 +345,171 @@ func TestPrintUpdateTime(t *testing.T) {
 	}{
 		// TODO: Add test cases.
 		{
+<<<<<<< HEAD
 			name: "Happy case 8",
 			args: args{
 				Time: "2022/09/21 21:00",
 			},
 			want: "Thời gian cập nhật: 2022/09/21 21:00",
+=======
+			name: "Happy case 12",
+			args: args{
+				Date: "1-1-1991",
+			},
+			want: "Ngay sinh: 1-1-1991",
+>>>>>>> origin/main
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := PrintUpdateTime(tt.args.Time); got != tt.want {
-				t.Errorf("PrintUpdateTime() = %v, want %v", got, tt.want)
+			if got := PrintDate(tt.args.Date); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("PrintDate() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestPrintFavourite(t *testing.T) {
+	type args struct {
+		Favour string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		// TODO: Add test cases.
+		{
+			name: "Happy case 13",
+			args: args{
+				Favour: "football",
+			},
+			want: "So thich: football",
+		}, {
+			name: "Happy case 14",
+			args: args{
+				Favour: "Swimming",
+			},
+			want: "So thich: Swimming",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintFavourite(tt.args.Favour); got != tt.want {
+				t.Errorf("PrintFavourite() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestPrintYourEmail(t *testing.T) {
+	type args struct {
+		YourEmail string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		// TODO: Add test cases.
+		{
+			name: "Happy case 15",
+			args: args{
+				YourEmail: "1234@exmaple.com",
+			},
+			want: "Email cua ban: 1234@exmaple.com",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintYourEmail(tt.args.YourEmail); got != tt.want {
+				t.Errorf("PrintYourEmail() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestPrintLanguage(t *testing.T) {
+	type args struct {
+		YourLanguage string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		// TODO: Add test cases.
+		{
+			name: "Happy case 16",
+			args: args{
+				YourLanguage: "English",
+			},
+			want: "Ngon ngu: English",
+		}, {
+			name: "Happy case 17",
+			args: args{
+				YourLanguage: "Japanese",
+			},
+			want: "Ngon ngu: Japanese",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintLanguage(tt.args.YourLanguage); got != tt.want {
+				t.Errorf("PrintLanguage() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestPrintMarried(t *testing.T) {
+	type args struct {
+		Answer string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		// TODO: Add test cases.
+		{
+			name: "Happy case 15",
+			args: args{
+				Answer: "Married",
+			},
+			want: "Hon nhan: Married",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintMarried(tt.args.Answer); got != tt.want {
+				t.Errorf("PrintMarried() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestReadKeyboard(t *testing.T) {
+	tests := []struct {
+		name           string
+		wantName       string
+		wantTeamNumber int
+	}{
+		// TODO: Add test cases.
+		{
+			name:           "Happy case 15",
+			wantName:       "Duyminh",
+			wantTeamNumber: 1,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotName, gotTeamNumber := ReadKeyboard()
+			if gotName != tt.wantName {
+				t.Errorf("ReadKeyboard() gotName = %v, want %v", gotName, tt.wantName)
+			}
+			if gotTeamNumber != tt.wantTeamNumber {
+				t.Errorf("ReadKeyboard() gotTeamNumber = %v, want %v", gotTeamNumber, tt.wantTeamNumber)
 			}
 		})
 	}

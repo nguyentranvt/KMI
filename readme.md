@@ -1,3 +1,16 @@
+●●●Workflow về cách làm việc trên git●●●
+1. Dùng lệnh [git fetch] để load file origin/main mới nhất về
+2. Dùng lệnh [git checkout origin/main] chuyển qua branch origin/main
+3. Trên branch origin/main tạo ra branch mới với tên branch là tên cộng với ngày làm việc
+    Ví dụ: Người làm việc là Nguyên, và ngày là 27/09 thì tạo branch là: Nguyen2709
+4. Chuyển qua branch vừa mới tạo và bắt đầu phiên làm việc.
+5. Sau khi hoàn thành cập nhật thì dùng lệnh [git push --set-upstream] update lên hệ thống
+6. Dùng lệnh [git fetch] để load file origin/main mới nhất về
+7. Dùng lệnh [git checkout origin/main] chuyển qua branch origin/main
+8. Dùng lệnh merge để merge branch mới tạo vào branch origin/main
+Chú ý: Bước 6,7,8 thì chỉ Admin mới thực thi
+
+
 ●●●Tổng hợp những lệnh cần khi sử dụng git●●●
 
 Chương 1 : tổng hợp các lệnh và giải thích
