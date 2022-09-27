@@ -8,10 +8,16 @@ import (
 )
 
 func main() {
-	ReadKeyboard()
+	NameValue, TeamNumberValue, err := ReadKeyboard()
+	if err != nil {
+		//panic(err)
+		os.Exit(3)
+	}
+	fmt.Println(PrintName(NameValue))
+	fmt.Println(PrintTeamNumber(TeamNumberValue))
 }
 
-func ReadKeyboard() (Name string, TeamNumber int) {
+func ReadKeyboard() (Name string, TeamNumber int, err error) {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("Please input Name: ")
 	NameValue, _ := reader.ReadString('\n')
@@ -19,10 +25,14 @@ func ReadKeyboard() (Name string, TeamNumber int) {
 	fmt.Print("Please input Team Number: ")
 	TeamNumberValue, _ := reader.ReadString('\n')
 	//convert string to int
-	TeamNumber, _ = strconv.Atoi(TeamNumberValue)
-	fmt.Println("Name: ", NameValue)
-	fmt.Println("Team Number: ", TeamNumberValue)
-	return NameValue, TeamNumber
+	TeamNumber, err = strconv.Atoi(TeamNumberValue)
+	if err != nil {
+		fmt.Println("Error: ", err)
+		return "", 0, nil
+	}
+	//fmt.Println("Name: ", NameValue)
+	//fmt.Println("Team Number: ", TeamNumberValue)
+	return NameValue, TeamNumber, nil
 }
 
 func PrintName(Name string) string {
