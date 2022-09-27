@@ -26,12 +26,16 @@ func ReadKeyboard() (Name string, TeamNumber int, err error) {
 	TeamNumberValue, _ := reader.ReadString('\n')
 	//convert string to int
 	TeamNumber, err = strconv.Atoi(TeamNumberValue)
-	if err != nil {
-		fmt.Println("Error: ", err)
-		return "", 0, nil
-	}
+
 	//fmt.Println("Name: ", NameValue)
 	//fmt.Println("Team Number: ", TeamNumberValue)
+	reader = bufio.NewReader(os.Stdin)
+	fmt.Print("Please input sex: ")
+	SexValue, _ := reader.ReadString('\n')
+	if SexValue != "Male\n" && SexValue != "Female\n" {
+		fmt.Println("Male or Female only")
+		return "", 0, nil
+	}
 	return NameValue, TeamNumber, nil
 }
 
