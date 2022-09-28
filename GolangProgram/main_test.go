@@ -196,9 +196,6 @@ func TestPrintReview(t *testing.T) {
 
 func TestPrintMyName(t *testing.T) {
 	type args struct {
-<<<<<<< HEAD
-		Time string
-=======
 		ten string
 	}
 	tests := []struct {
@@ -336,7 +333,6 @@ func TestPrintManagerEmail(t *testing.T) {
 func TestPrintDate(t *testing.T) {
 	type args struct {
 		Date string
->>>>>>> origin/main
 	}
 	tests := []struct {
 		name string
