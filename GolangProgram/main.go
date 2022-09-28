@@ -36,6 +36,13 @@ func ReadKeyboard() (Name string, TeamNumber int, err error) {
 		fmt.Println("Male or Female only")
 		return "", 0, nil
 	}
+
+	//Review của sếp
+	reader = bufio.NewReader(os.Stdin)
+	fmt.Print("Please input Review: ")
+	ReviewValue, _ := reader.ReadString('\n')
+	return ReviewValue, 0, nil
+
 	return NameValue, TeamNumber, nil
 }
 
