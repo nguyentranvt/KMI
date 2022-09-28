@@ -43,6 +43,12 @@ func ReadKeyboard() (Name string, TeamNumber int, err error) {
 	ReviewValue, _ := reader.ReadString('\n')
 	return ReviewValue, 0, nil
 
+	//Cty yêu thích
+	reader = bufio.NewReader(os.Stdin)
+	fmt.Print("Please input your favorite company: ")
+	CompanyNameValue, _ := reader.ReadString('\n')
+	return CompanyNameValue, 0, nil
+
 	return NameValue, TeamNumber, nil
 }
 
