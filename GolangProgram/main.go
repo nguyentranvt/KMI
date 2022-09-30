@@ -52,7 +52,30 @@ func ReadKeyboard() (Name string, GenderValue string, TeamNumber int, Listfavori
 	return NameValue, BufferGenderValue, BufferTeamNumber, BufferFavorite, BufferLanguage, nil
 }
 
-//define input
+// define ReadJPEGFile function to read JPEG file return byte array input is file path
+func ReadJPEGFile(FilePath string) ([]byte, error) {
+	//open file
+	file, err := os.Open(FilePath)
+	if err != nil {
+		return nil, err
+	}
+	//read file
+	fileInfo, err := file.Stat()
+	if err != nil {
+		return nil, err
+	}
+	//get file size
+	var size int64 = fileInfo.Size()
+	//make a buffer
+	buffer := make([]byte, size)
+	//read file into buffer
+	_, err = file.Read(buffer)
+	if err != nil {
+		return nil, err
+	}
+	//return byte array
+	return buffer, nil
+}
 
 // Define input ReadKeyboardForGender
 func ReadKeyboardForGender() (Gender string, err error) {
@@ -105,13 +128,6 @@ func ReadKeyboardForBirthday() (Birthday string, err error) {
 	//define email format
 
 	return BirthdayValue, nil
-}
-
-// Define sendemail function
-func SendEmail(Email string) error {
-	//get email from input
-	//send "hello"  to email
-
 }
 
 // define input ReadKeyboardForfavorite reuturn list of favorite Split by  comma
