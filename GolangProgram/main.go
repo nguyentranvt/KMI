@@ -5,55 +5,131 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 )
 
 func main() {
-	NameValue, TeamNumberValue, err, PhoneValue := ReadKeyboard()
-	if err != nil {
-		//panic(err)
-		os.Exit(3)
-	}
-	fmt.Println(PrintName(NameValue))
-	fmt.Println(PrintTeamNumber(TeamNumberValue))
-	//fmt.Println(PrintAddress(HouseNumberValue, AddressValue))
-	fmt.Println(PrintTellNumber(PhoneValue))
+	// NameValue, TeamNumberValue, err := ReadKeyboard()
+	// if err != nil {
+	// 	//panic(err)
+	// 	os.Exit(3)
+	// }
+	// fmt.Println(PrintName(NameValue))
+	// fmt.Println(PrintTeamNumber(TeamNumberValue))
 }
 
-func ReadKeyboard() (Name string, TeamNumber int, err error, PhoneValue string) {
+func ReadKeyboard() (Name string, GenderValue string, TeamNumber int, Listfavorite []string, Listlanguage []string, err error) {
+	//use ReadKeyboardForName function to read name
+	NameValue, err := ReadKeyboardForName()
+	if err != nil {
+		return "", "", 0, nil, nil, err
+	}
+	//use ReadKeyboardForTeamNumber function to read team number
+	BufferTeamNumber, err := ReadKeyboardForTeamNumber()
+	if err != nil {
+		return "", "", 0, nil, nil, err
+	}
+	//use ReadKeyboardForFavorite function to read favorite
+	BufferFavorite, err := ReadKeyboardForFavorite()
+	if err != nil {
+		return "", "", 0, nil, nil, err
+	}
+	//use ReadKeyboardForLanguage function to read language
+	BufferLanguage, err := ReadKeyboardForLanguage()
+	if err != nil {
+		return "", "", 0, nil, nil, err
+	}
+	fmt.Println("Name: ", NameValue)
+	fmt.Println("Team Number: ", TeamNumber)
+	fmt.Print("Please input sex: ")
+	BufferGenderValue, err := ReadKeyboardForGender()
+
+	//Review của sếp
+
+	// ReviewValue, _ := reader.ReadString('\n')
+	// return ReviewValue, 0, nil
+
+	return NameValue, BufferGenderValue, BufferTeamNumber, BufferFavorite, BufferLanguage, nil
+}
+
+// Define input ReadKeyboardForGender
+func ReadKeyboardForGender() (Gender string, err error) {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Please input sex: ")
+	SexValue, _ := reader.ReadString('\n')
+	if SexValue != "Male\n" && SexValue != "Female\n" {
+		fmt.Println("Male or Female only")
+		return "", nil
+	}
+	return SexValue, nil
+}
+
+// Define input ReadKeyboardForName
+func ReadKeyboardForName() (Name string, err error) {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("Please input Name: ")
 	NameValue, _ := reader.ReadString('\n')
-	reader = bufio.NewReader(os.Stdin)
+	return NameValue, nil
+}
+
+// define input ReadKeyboardForTeamNumber
+func ReadKeyboardForTeamNumber() (TeamNumber int, err error) {
+	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("Please input Team Number: ")
 	TeamNumberValue, _ := reader.ReadString('\n')
 	//convert string to int
 	TeamNumber, err = strconv.Atoi(TeamNumberValue)
-	//fmt.Println("Name: ", NameValue)
-	//fmt.Println("Team Number: ", TeamNumberValue)
-	// reader = bufio.NewReader(os.Stdin)
-	// fmt.Print("Please input sex: ")
-	// SexValue, _ := reader.ReadString('\n')
-	// if SexValue != "Male\n" && SexValue != "Female\n" {
-	// 	fmt.Println("Male or Female only")
-	// 	return "", 0, nil, ""
-	// }
+	if err != nil {
+		return 0, err
+	}
+	return TeamNumber, nil
+}
 
-	//PrintAddress
-	// reader = bufio.NewReader(os.Stdin)
-	// fmt.Print("Please input your number and address: ")
-	// HouseNumberValue, _ := reader.ReadString('\n')
-	// //convert string to int
-	// HouseNumber, _ = strconv.Atoi(HouseNumberValue)
-	// AddressValue, _ := reader.ReadString('\n')
+// define input ReadKeyboardForBirthday
+func ReadKeyboardForBirthday() (Birthday string, err error) {
 
-	//PhoneNumber
-	reader = bufio.NewReader(os.Stdin)
-	fmt.Print("Please input your phone number: ")
-	PhoneValue, _ = reader.ReadString('\n')
-	return NameValue, TeamNumber, nil, PhoneValue
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Please input Birthday: ")
+	BirthdayValue, _ := reader.ReadString('\n')
+	//check format dd/mm/yyyy of birthday is correct
+	if len(BirthdayValue) != 11 {
+		fmt.Println("Please input dd/mm/yyyy format")
+		return "", nil
+	}
+	if BirthdayValue[2] != '/' || BirthdayValue[5] != '/' {
+		fmt.Println("Please input dd/mm/yyyy format")
+		return "", nil
+	}
+	//define email format
+
+	return BirthdayValue, nil
+}
+
+// define input ReadKeyboardForfavorite reuturn list of favorite Split by  comma
+func ReadKeyboardForFavorite() (ListFavorite []string, err error) {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Please input favorite: ")
+	favoriteValue, _ := reader.ReadString('\n')
+	//convert string to list
+	ListFavorite = strings.Split(favoriteValue, ",")
+	return ListFavorite, nil
+}
+
+// define input ReadKeyboardForLanguage return list of language Split by  comma
+func ReadKeyboardForLanguage() (ListLanguage []string, err error) {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Please input language: ")
+	LanguageValue, _ := reader.ReadString('\n')
+	//convert string to list
+	ListLanguage = strings.Split(LanguageValue, ",")
+	return ListLanguage, nil
 }
 
 func PrintName(Name string) string {
+	//Check if the name is empty
+	if Name == "" {
+		return "Name is empty"
+	}
 	return "Ho va ten " + Name
 }
 
@@ -105,14 +181,36 @@ func PrintManagerEmail(ManagerEmail string) string {
 func PrintDate(Date string) string {
 	return "Ngay sinh: " + Date
 }
-func PrintFavourite(Favour string) string {
-	return "So thich: " + Favour
+func Printfavorite(Favour []string) string {
+	BufferList := ""
+	//Loop through the array
+	for i := 0; i < len(Favour); i++ {
+		//if the last element, don't add comma
+		if i == len(Favour)-1 {
+			BufferList += Favour[i]
+		} else {
+			BufferList += Favour[i] + ", "
+		}
+	}
+	return "So thich: " + BufferList
 }
 func PrintYourEmail(YourEmail string) string {
 	return "Email cua ban: " + YourEmail
 }
-func PrintLanguage(YourLanguage string) string {
-	return "Ngon ngu: " + YourLanguage
+func PrintLanguage(YourLanguage []string) string {
+	//Define BufferList
+	BufferList := ""
+	for i := 0; i < len(YourLanguage); i++ {
+		//if the last element, don't add comma
+		if i == len(YourLanguage)-1 {
+			BufferList += YourLanguage[i]
+		} else {
+			BufferList += YourLanguage[i] + ", "
+		}
+	}
+
+	return "Ngoai ngu: " + BufferList
+
 }
 func PrintMarried(Answer string) string {
 	return "Hon nhan: " + Answer
