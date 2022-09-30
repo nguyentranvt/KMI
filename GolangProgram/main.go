@@ -18,11 +18,11 @@ func main() {
 	// fmt.Println(PrintTeamNumber(TeamNumberValue))
 }
 
-func ReadKeyboard() (Name string, TeamNumber int, Listfavorite []string, Listlanguage []string, err error) {
+func ReadKeyboard() (Name string, GenderValue string, TeamNumber int, Listfavorite []string, Listlanguage []string, err error) {
 	//use ReadKeyboardForName function to read name
 	NameValue, err := ReadKeyboardForName()
 	if err != nil {
-		return "", 0, nil, nil, err
+		return "", ,  0, nil, nil, err
 	}
 	//use ReadKeyboardForTeamNumber function to read team number
 	BufferTeamNumber, err := ReadKeyboardForTeamNumber()
@@ -41,13 +41,9 @@ func ReadKeyboard() (Name string, TeamNumber int, Listfavorite []string, Listlan
 	}
 	fmt.Println("Name: ", NameValue)
 	fmt.Println("Team Number: ", TeamNumber)
-	reader = bufio.NewReader(os.Stdin)
 	fmt.Print("Please input sex: ")
-	SexValue, _ := reader.ReadString('\n')
-	if SexValue != "Male\n" && SexValue != "Female\n" {
-		fmt.Println("Male or Female only")
-		return "", 0, nil
-	}
+	BufferGenderValue, err := ReadKeyboardForGender()
+
 
 	//Review của sếp
 	reader = bufio.NewReader(os.Stdin)
@@ -55,7 +51,19 @@ func ReadKeyboard() (Name string, TeamNumber int, Listfavorite []string, Listlan
 	// ReviewValue, _ := reader.ReadString('\n')
 	// return ReviewValue, 0, nil
 
-	return NameValue, BufferTeamNumber, BufferFavorite, BufferLanguage, nil
+	return NameValue, BufferGenderValue, BufferTeamNumber, BufferFavorite, BufferLanguage, nil
+}
+
+// Define input ReadKeyboardForGender
+func ReadKeyboardForGender() (Gender string, err error) {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Please input sex: ")
+	SexValue, _ := reader.ReadString('\n')
+	if SexValue != "Male\n" && SexValue != "Female\n" {
+		fmt.Println("Male or Female only")
+		return "", nil
+	}
+	return SexValue, nil
 }
 
 // Define input ReadKeyboardForName
