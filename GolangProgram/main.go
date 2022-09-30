@@ -8,16 +8,18 @@ import (
 )
 
 func main() {
-	NameValue, TeamNumberValue, err := ReadKeyboard()
+	NameValue, TeamNumberValue, err, PhoneValue := ReadKeyboard()
 	if err != nil {
 		//panic(err)
 		os.Exit(3)
 	}
 	fmt.Println(PrintName(NameValue))
 	fmt.Println(PrintTeamNumber(TeamNumberValue))
+	//fmt.Println(PrintAddress(HouseNumberValue, AddressValue))
+	fmt.Println(PrintTellNumber(PhoneValue))
 }
 
-func ReadKeyboard() (Name string, TeamNumber int, err error) {
+func ReadKeyboard() (Name string, TeamNumber int, err error, PhoneValue string) {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("Please input Name: ")
 	NameValue, _ := reader.ReadString('\n')
@@ -26,17 +28,29 @@ func ReadKeyboard() (Name string, TeamNumber int, err error) {
 	TeamNumberValue, _ := reader.ReadString('\n')
 	//convert string to int
 	TeamNumber, err = strconv.Atoi(TeamNumberValue)
-
 	//fmt.Println("Name: ", NameValue)
 	//fmt.Println("Team Number: ", TeamNumberValue)
+	// reader = bufio.NewReader(os.Stdin)
+	// fmt.Print("Please input sex: ")
+	// SexValue, _ := reader.ReadString('\n')
+	// if SexValue != "Male\n" && SexValue != "Female\n" {
+	// 	fmt.Println("Male or Female only")
+	// 	return "", 0, nil, ""
+	// }
+
+	//PrintAddress
+	// reader = bufio.NewReader(os.Stdin)
+	// fmt.Print("Please input your number and address: ")
+	// HouseNumberValue, _ := reader.ReadString('\n')
+	// //convert string to int
+	// HouseNumber, _ = strconv.Atoi(HouseNumberValue)
+	// AddressValue, _ := reader.ReadString('\n')
+
+	//PhoneNumber
 	reader = bufio.NewReader(os.Stdin)
-	fmt.Print("Please input sex: ")
-	SexValue, _ := reader.ReadString('\n')
-	if SexValue != "Male\n" && SexValue != "Female\n" {
-		fmt.Println("Male or Female only")
-		return "", 0, nil
-	}
-	return NameValue, TeamNumber, nil
+	fmt.Print("Please input your phone number: ")
+	PhoneValue, _ = reader.ReadString('\n')
+	return NameValue, TeamNumber, nil, PhoneValue
 }
 
 func PrintName(Name string) string {
