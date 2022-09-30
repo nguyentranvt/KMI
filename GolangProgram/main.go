@@ -22,37 +22,37 @@ func ReadKeyboard() (Name string, GenderValue string, TeamNumber int, Listfavori
 	//use ReadKeyboardForName function to read name
 	NameValue, err := ReadKeyboardForName()
 	if err != nil {
-		return "", ,  0, nil, nil, err
+		return "", "", 0, nil, nil, err
 	}
 	//use ReadKeyboardForTeamNumber function to read team number
 	BufferTeamNumber, err := ReadKeyboardForTeamNumber()
 	if err != nil {
-		return "", 0, nil, nil, err
+		return "", "", 0, nil, nil, err
 	}
 	//use ReadKeyboardForFavorite function to read favorite
 	BufferFavorite, err := ReadKeyboardForFavorite()
 	if err != nil {
-		return "", 0, nil, nil, err
+		return "", "", 0, nil, nil, err
 	}
 	//use ReadKeyboardForLanguage function to read language
 	BufferLanguage, err := ReadKeyboardForLanguage()
 	if err != nil {
-		return "", 0, nil, nil, err
+		return "", "", 0, nil, nil, err
 	}
 	fmt.Println("Name: ", NameValue)
 	fmt.Println("Team Number: ", TeamNumber)
 	fmt.Print("Please input sex: ")
 	BufferGenderValue, err := ReadKeyboardForGender()
 
-
 	//Review của sếp
-	reader = bufio.NewReader(os.Stdin)
-	fmt.Print("Please input Review: ")
+
 	// ReviewValue, _ := reader.ReadString('\n')
 	// return ReviewValue, 0, nil
 
 	return NameValue, BufferGenderValue, BufferTeamNumber, BufferFavorite, BufferLanguage, nil
 }
+
+//define input
 
 // Define input ReadKeyboardForGender
 func ReadKeyboardForGender() (Gender string, err error) {

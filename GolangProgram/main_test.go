@@ -1,7 +1,6 @@
 package main
 
 import (
-	"reflect"
 	"testing"
 )
 
@@ -330,73 +329,71 @@ func TestPrintManagerEmail(t *testing.T) {
 	}
 }
 
-func TestPrintDate(t *testing.T) {
-	type args struct {
-		Date string
-	}
-	tests := []struct {
-		name string
-		args args
-		want string
-	}{
-		// TODO: Add test cases.
-		{
-<<<<<<< HEAD
-			name: "Happy case 8",
-			args: args{
-				Time: "2022/09/21 21:00",
-			},
-			want: "Thời gian cập nhật: 2022/09/21 21:00",
-=======
-			name: "Happy case 12",
-			args: args{
-				Date: "1-1-1991",
-			},
-			want: "Ngay sinh: 1-1-1991",
->>>>>>> origin/main
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := PrintDate(tt.args.Date); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("PrintDate() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
+// func TestPrintDate(t *testing.T) {
+// 	type args struct {
+// 		Date string
+// 	}
+// 	tests := []struct {
+// 		name string
+// 		args args
+// 		want string
+// 	}{
+// 		// TODO: Add test cases.
+// 		{
+// 			name: "Happy case 8",
+// 			args: args{
+// 				Time: "2022/09/21 21:00",
+// 			},
+// 			want: "Thời gian cập nhật: 2022/09/21 21:00",
+// 		},
+// 			name: "Happy case 12",
+// 			args: args{
+// 				Date: "1-1-1991",
+// 			},
+// 			want: "Ngay sinh: 1-1-1991",
+// 		},
+// 	},
+// 	for _, tt := range tests {
+// 		t.Run(tt.name, func(t *testing.T) {
+// 			if got := PrintDate(tt.args.Date); !reflect.DeepEqual(got, tt.want) {
+// 				t.Errorf("PrintDate() = %v, want %v", got, tt.want)
+// 			}
+// 		})
+// 	}
+// }
 
-func TestPrintFavourite(t *testing.T) {
-	type args struct {
-		Favour string
-	}
-	tests := []struct {
-		name string
-		args args
-		want string
-	}{
-		// TODO: Add test cases.
-		{
-			name: "Happy case 13",
-			args: args{
-				Favour: "football",
-			},
-			want: "So thich: football",
-		}, {
-			name: "Happy case 14",
-			args: args{
-				Favour: "Swimming",
-			},
-			want: "So thich: Swimming",
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := PrintFavourite(tt.args.Favour); got != tt.want {
-				t.Errorf("PrintFavourite() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
+// func TestPrintFavourite(t *testing.T) {
+// 	type args struct {
+// 		Favour []string
+// 	}
+// 	tests := []struct {
+// 		name string
+// 		args args
+// 		want string
+// 	}{
+// 		// TODO: Add test cases.
+// 		{
+// 			name: "Happy case 13",
+// 			args: args{
+// 				Favour: ["football"],
+// 			},
+// 			want: "So thich: football",
+// 		}, {
+// 			name: "Happy case 14",
+// 			args: args{
+// 				Favour: "Swimming",
+// 			},
+// 			want: "So thich: Swimming",
+// 		},
+// 	}
+// 	for _, tt := range tests {
+// 		t.Run(tt.name, func(t *testing.T) {
+// 			if got := PrintFavourite(tt.args.Favour); got != tt.want {
+// 				t.Errorf("PrintFavourite() = %v, want %v", got, tt.want)
+// 			}
+// 		})
+// 	}
+// }
 
 func TestPrintYourEmail(t *testing.T) {
 	type args struct {
@@ -425,39 +422,6 @@ func TestPrintYourEmail(t *testing.T) {
 	}
 }
 
-func TestPrintLanguage(t *testing.T) {
-	type args struct {
-		YourLanguage string
-	}
-	tests := []struct {
-		name string
-		args args
-		want string
-	}{
-		// TODO: Add test cases.
-		{
-			name: "Happy case 16",
-			args: args{
-				YourLanguage: "English",
-			},
-			want: "Ngon ngu: English",
-		}, {
-			name: "Happy case 17",
-			args: args{
-				YourLanguage: "Japanese",
-			},
-			want: "Ngon ngu: Japanese",
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := PrintLanguage(tt.args.YourLanguage); got != tt.want {
-				t.Errorf("PrintLanguage() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
-
 func TestPrintMarried(t *testing.T) {
 	type args struct {
 		Answer string
@@ -467,7 +431,7 @@ func TestPrintMarried(t *testing.T) {
 		args args
 		want string
 	}{
-		// TODO: Add test cases.
+
 		{
 			name: "Happy case 15",
 			args: args{
@@ -480,32 +444,6 @@ func TestPrintMarried(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := PrintMarried(tt.args.Answer); got != tt.want {
 				t.Errorf("PrintMarried() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
-
-func TestReadKeyboard(t *testing.T) {
-	tests := []struct {
-		name           string
-		wantName       string
-		wantTeamNumber int
-	}{
-		// TODO: Add test cases.
-		{
-			name:           "Happy case 15",
-			wantName:       "Duyminh",
-			wantTeamNumber: 1,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotName, gotTeamNumber := ReadKeyboard()
-			if gotName != tt.wantName {
-				t.Errorf("ReadKeyboard() gotName = %v, want %v", gotName, tt.wantName)
-			}
-			if gotTeamNumber != tt.wantTeamNumber {
-				t.Errorf("ReadKeyboard() gotTeamNumber = %v, want %v", gotTeamNumber, tt.wantTeamNumber)
 			}
 		})
 	}
@@ -533,6 +471,33 @@ func TestPrintFreeTime(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := PrintFreeTime(tt.args.FreeTime); got != tt.want {
 				t.Errorf("PrintFreeTime() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestPrintFavourite(t *testing.T) {
+	type args struct {
+		Favour []string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		{
+			name: "Happy case 10",
+			args: args{
+				Favour: []string{"Swimming", "Reading"},
+			},
+			want: "So thich: Swimming, Reading",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PrintFavourite(tt.args.Favour); got != tt.want {
+				t.Errorf("PrintFavourite() = %v, want %v", got, tt.want)
 			}
 		})
 	}
