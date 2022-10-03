@@ -150,17 +150,41 @@ func PrintTeamNumber(Number int) string {
 	return "Thanh vien nhom " + ValueAfterConvert
 }
 
-func PrintAddress(Number int, Address string) string {
-	ValueAfterConvert1 := strconv.Itoa(Number)
-	return "Dia chi: " + Address + " So nha: " + ValueAfterConvert1
+// func PrintAddress(Number int, Address string) string {
+// 	ValueAfterConvert1 := strconv.Itoa(Number)
+// 	return "Dia chi: " + Address + " So nha: " + ValueAfterConvert1
+// }
+
+func ReadKeyboardForAddress() (Address string, err error) {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Please input your address: ")
+	AddressValue, _ := reader.ReadString('\n')
+	if AddressValue == "" {
+		fmt.Println("Please enter Address")
+		return "", nil
+	}
+	return AddressValue, nil
 }
 
 func PrintSex(Sex string) string {
 	return "Gioi tinh: " + Sex
 }
 
-func PrintTellNumber(Number string) string {
-	return "So dien thoai: " + Number
+//	func PrintTellNumber(Number string) string {
+//		return "So dien thoai: " + Number
+//	}
+
+// define input ReadKeyboardForPhoneNumber
+func ReadKeyboardForPhoneNumber() (PhoneNumber int, err error) {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Please input your phone number: ")
+	PhoneNumberValue, _ := reader.ReadString('\n')
+	//convert string to int
+	PhoneNumber, err = strconv.Atoi(PhoneNumberValue)
+	if err != nil {
+		return 0, err
+	}
+	return PhoneNumber, nil
 }
 
 func PrintReview(Review string) string {
@@ -177,18 +201,61 @@ func PrintFreeTime(FreeTime string) string {
 func PrintMyName(ten string) string {
 	return "toi ten la: " + ten
 }
-func PrintGirlFriendCurrentNumber(GirlFrendNumber int) string {
-	ValueAfterConvert2 := strconv.Itoa(GirlFrendNumber)
-	return "Số lượng bạn gái hiện tại: " + ValueAfterConvert2
+
+// func PrintGirlFriendCurrentNumber(GirlFrendNumber int) string {
+// 	ValueAfterConvert2 := strconv.Itoa(GirlFrendNumber)
+// 	return "Số lượng bạn gái hiện tại: " + ValueAfterConvert2
+// }
+
+// define input ReadKeyboardForGrilFriendCurrentNumber
+func ReadKeyboardForGrilFriendCurrentNumber() (GirlFriendNumber int, err error) {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Please input girl friend current number: ")
+	GirlFriendNumberValue, _ := reader.ReadString('\n')
+	//convert string to int
+	GirlFriendNumber, err = strconv.Atoi(GirlFriendNumberValue)
+	if err != nil {
+		return 0, err
+	}
+	return GirlFriendNumber, nil
 }
-func PrintIntroduce(Introduce string) string {
-	return "Giới thiệu bản thân: " + Introduce
+
+// func PrintIntroduce(Introduce string) string {
+// 	return "Giới thiệu bản thân: " + Introduce
+// }
+
+// define input ReadKeyboardForIntroduce return your introduce
+func ReadKeyboardForIntroduce() (Introduce []string, err error) {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Please input your introduce: ")
+	IntroduceValue, _ := reader.ReadString('\n')
+	//convert string to list
+	Introduce = strings.Split(IntroduceValue, ",")
+	return Introduce, nil
 }
-func PrintManager(Manager string) string {
-	return "Sếp hiện tại: " + Manager
+
+// func PrintManager(Manager string) string {
+// 	return "Sếp hiện tại: " + Manager
+// }
+
+// Define input ReadKeyboardForManager
+func ReadKeyboardForManager() (Manager string, err error) {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Please input your manager name: ")
+	ManagerValue, _ := reader.ReadString('\n')
+	return ManagerValue, nil
 }
-func PrintManagerEmail(ManagerEmail string) string {
-	return "Email sếp: " + ManagerEmail
+
+// func PrintManagerEmail(ManagerEmail string) string {
+// 	return "Email sếp: " + ManagerEmail
+// }
+
+// Define input ReadKeyboardForManagerEmail
+func ReadKeyboardForManagerEmail() (ManagerEmail string, err error) {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Please input your manager Email: ")
+	ManagerEmailValue, _ := reader.ReadString('\n')
+	return ManagerEmailValue, nil
 }
 func PrintDate(Date string) string {
 	return "Ngay sinh: " + Date
