@@ -18,26 +18,26 @@ func main() {
 	// fmt.Println(PrintTeamNumber(TeamNumberValue))
 }
 
-func ReadKeyboard() (Name string, GenderValue string, TeamNumber int, Listfavorite []string, Listlanguage []string, err error) {
+func ReadKeyboard() (Name string, GenderValue string, TeamNumber int, Listfavorite []string, Listlanguage []string, MarryValue string, err error) {
 	//use ReadKeyboardForName function to read name
 	NameValue, err := ReadKeyboardForName()
 	if err != nil {
-		return "", "", 0, nil, nil, err
+		return "", "", 0, nil, nil, "", err
 	}
 	//use ReadKeyboardForTeamNumber function to read team number
 	BufferTeamNumber, err := ReadKeyboardForTeamNumber()
 	if err != nil {
-		return "", "", 0, nil, nil, err
+		return "", "", 0, nil, nil, "", err
 	}
 	//use ReadKeyboardForFavorite function to read favorite
 	BufferFavorite, err := ReadKeyboardForFavorite()
 	if err != nil {
-		return "", "", 0, nil, nil, err
+		return "", "", 0, nil, nil, "", err
 	}
 	//use ReadKeyboardForLanguage function to read language
 	BufferLanguage, err := ReadKeyboardForLanguage()
 	if err != nil {
-		return "", "", 0, nil, nil, err
+		return "", "", 0, nil, nil, "", err
 	}
 	fmt.Println("Name: ", NameValue)
 	fmt.Println("Team Number: ", TeamNumber)
@@ -49,7 +49,7 @@ func ReadKeyboard() (Name string, GenderValue string, TeamNumber int, Listfavori
 	// ReviewValue, _ := reader.ReadString('\n')
 	// return ReviewValue, 0, nil
 
-	return NameValue, BufferGenderValue, BufferTeamNumber, BufferFavorite, BufferLanguage, nil
+	return NameValue, BufferGenderValue, BufferTeamNumber, BufferFavorite, BufferLanguage, MarryValue, nil
 }
 
 // Define input ReadKeyboardForGender
@@ -123,6 +123,18 @@ func ReadKeyboardForLanguage() (ListLanguage []string, err error) {
 	//convert string to list
 	ListLanguage = strings.Split(LanguageValue, ",")
 	return ListLanguage, nil
+}
+
+// define input ReadkeyboardforMarry
+func ReadKeyboardForMarry() (Marry string, err error) {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Please input Marry: ")
+	MarryValue, _ := reader.ReadString('\n')
+	if MarryValue != "Yes\n" && MarryValue != "No\n" {
+		fmt.Println("Yes or No only")
+		return "", nil
+	}
+	return MarryValue, nil
 }
 
 func PrintName(Name string) string {
@@ -212,6 +224,6 @@ func PrintLanguage(YourLanguage []string) string {
 	return "Ngoai ngu: " + BufferList
 
 }
-func PrintMarried(Answer string) string {
-	return "Hon nhan: " + Answer
+func PrintMarried(Marry string) string {
+	return "Hon nhan: " + Marry
 }
