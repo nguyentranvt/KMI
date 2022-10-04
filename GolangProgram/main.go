@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-// Name string, GenderValue string, TeamNumber int, Listfavorite []string, Listlanguage []string, MarryValue string, PhoneNumber int
+// Name string, GenderValue string, TeamNumber int, Listfavorite []string, Listlanguage []string, MarryValue string, PhoneNumber int, Address string, GirlFriendNumber int, Introduce []string, Manager string, ManagerEmail string
 type EmployeeModel struct {
 	Name         string
 	TeamNumber   int
@@ -18,6 +18,11 @@ type EmployeeModel struct {
 	Listlanguage []string
 	MarryValue   string
 	PhoneNumber  int
+	Address      string
+	GirlFriend   int
+	Introduce    []string
+	Manager      string
+	ManagerEmail string
 }
 
 func main() {
@@ -61,6 +66,31 @@ func ReadKeyboard() (EmpInfo EmployeeModel, err error) {
 		return EmployeeModel{}, err
 	}
 
+	BufferForAddress, err := ReadKeyboardForAddress()
+	if err != nil {
+		return EmployeeModel{}, err
+	}
+
+	BufferForGirlFriend, err := ReadKeyboardForGrilFriendCurrentNumber()
+	if err != nil {
+		return EmployeeModel{}, err
+	}
+
+	BufferForIntroduce, err := ReadKeyboardForIntroduce()
+	if err != nil {
+		return EmployeeModel{}, err
+	}
+
+	BufferForManager, err := ReadKeyboardForManager()
+	if err != nil {
+		return EmployeeModel{}, err
+	}
+
+	BufferForManagerEmail, err := ReadKeyboardForManagerEmail()
+	if err != nil {
+		return EmployeeModel{}, err
+	}
+
 	//Review của sếp
 
 	// ReviewValue, _ := reader.ReadString('\n')
@@ -73,6 +103,11 @@ func ReadKeyboard() (EmpInfo EmployeeModel, err error) {
 		Listlanguage: BufferLanguage,
 		GenderValue:  BufferGenderValue,
 		PhoneNumber:  BufferForPhone,
+		Address:      BufferForAddress,
+		GirlFriend:   BufferForGirlFriend,
+		Introduce:    BufferForIntroduce,
+		Manager:      BufferForManager,
+		ManagerEmail: BufferForManagerEmail,
 	}, nil
 }
 
@@ -179,10 +214,12 @@ func PrintTeamNumber(Number int) string {
 // 	return "Dia chi: " + Address + " So nha: " + ValueAfterConvert1
 // }
 
+// define input ReadKeyboardAddress
 func ReadKeyboardForAddress() (Address string, err error) {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("Please input your address: ")
 	AddressValue, _ := reader.ReadString('\n')
+	//check Address is empty
 	if AddressValue == "" {
 		fmt.Println("Please enter Address")
 		return "", nil
@@ -244,8 +281,10 @@ func ReadKeyboardForGrilFriendCurrentNumber() (GirlFriendNumber int, err error) 
 	GirlFriendNumberValue, _ := reader.ReadString('\n')
 	//convert string to int
 	GirlFriendNumber, err = strconv.Atoi(GirlFriendNumberValue)
-	if err != nil {
-		return 0, err
+	//Check GrilFriendNumber is empty
+	if GirlFriendNumber == 0 {
+		fmt.Println("Please enter GrilFriendNumber")
+		return 0, nil
 	}
 	return GirlFriendNumber, nil
 }
@@ -273,6 +312,11 @@ func ReadKeyboardForManager() (Manager string, err error) {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("Please input your manager name: ")
 	ManagerValue, _ := reader.ReadString('\n')
+	//Check Manager is empty
+	if ManagerValue == "" {
+		fmt.Println("Please enter Manager")
+		return "", nil
+	}
 	return ManagerValue, nil
 }
 
@@ -285,6 +329,11 @@ func ReadKeyboardForManagerEmail() (ManagerEmail string, err error) {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("Please input your manager Email: ")
 	ManagerEmailValue, _ := reader.ReadString('\n')
+	//Check ManagerEmail is empty
+	if ManagerEmailValue == "" {
+		fmt.Println("Please enter ManagerEmail")
+		return "", nil
+	}
 	return ManagerEmailValue, nil
 }
 func PrintDate(Date string) string {
