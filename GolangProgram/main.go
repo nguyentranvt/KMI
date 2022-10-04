@@ -2,11 +2,23 @@ package main
 
 import (
 	"bufio"
+	"errors"
 	"fmt"
 	"os"
 	"strconv"
 	"strings"
 )
+
+// Name string, GenderValue string, TeamNumber int, Listfavorite []string, Listlanguage []string, MarryValue string, PhoneNumber int
+type EmployeeModel struct {
+	Name         string
+	TeamNumber   int
+	GenderValue  string
+	Listfavorite []string
+	Listlanguage []string
+	MarryValue   string
+	PhoneNumber  int
+}
 
 func main() {
 	// NameValue, TeamNumberValue, err := ReadKeyboard()
@@ -18,38 +30,50 @@ func main() {
 	// fmt.Println(PrintTeamNumber(TeamNumberValue))
 }
 
-func ReadKeyboard() (Name string, GenderValue string, TeamNumber int, Listfavorite []string, Listlanguage []string, MarryValue string, err error) {
+func ReadKeyboard() (EmpInfo EmployeeModel, err error) {
 	//use ReadKeyboardForName function to read name
 	NameValue, err := ReadKeyboardForName()
 	if err != nil {
-		return "", "", 0, nil, nil, "", err
+		return EmployeeModel{}, err
 	}
 	//use ReadKeyboardForTeamNumber function to read team number
 	BufferTeamNumber, err := ReadKeyboardForTeamNumber()
 	if err != nil {
-		return "", "", 0, nil, nil, "", err
+		return EmployeeModel{}, err
 	}
 	//use ReadKeyboardForFavorite function to read favorite
 	BufferFavorite, err := ReadKeyboardForFavorite()
 	if err != nil {
-		return "", "", 0, nil, nil, "", err
+		return EmployeeModel{}, err
 	}
 	//use ReadKeyboardForLanguage function to read language
 	BufferLanguage, err := ReadKeyboardForLanguage()
 	if err != nil {
-		return "", "", 0, nil, nil, "", err
+		return EmployeeModel{}, err
 	}
-	fmt.Println("Name: ", NameValue)
-	fmt.Println("Team Number: ", TeamNumber)
-	fmt.Print("Please input sex: ")
+
 	BufferGenderValue, err := ReadKeyboardForGender()
+	if err != nil {
+		return EmployeeModel{}, err
+	}
+	BufferForPhone, err := ReadKeyboardForPhoneNumber()
+	if err != nil {
+		return EmployeeModel{}, err
+	}
 
 	//Review của sếp
 
 	// ReviewValue, _ := reader.ReadString('\n')
 	// return ReviewValue, 0, nil
 
-	return NameValue, BufferGenderValue, BufferTeamNumber, BufferFavorite, BufferLanguage, MarryValue, nil
+	return EmployeeModel{
+		Name:         NameValue,
+		TeamNumber:   BufferTeamNumber,
+		Listfavorite: BufferFavorite,
+		Listlanguage: BufferLanguage,
+		GenderValue:  BufferGenderValue,
+		PhoneNumber:  BufferForPhone,
+	}, nil
 }
 
 // Define input ReadKeyboardForGender
@@ -179,6 +203,12 @@ func ReadKeyboardForPhoneNumber() (PhoneNumber int, err error) {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("Please input your phone number: ")
 	PhoneNumberValue, _ := reader.ReadString('\n')
+	//check phonenumber format is correct and return error if not
+	if len(PhoneNumberValue) != 10 {
+		fmt.Println("Please input 10 number")
+		return 0, errors.New("Please input 10 number")
+	}
+
 	//convert string to int
 	PhoneNumber, err = strconv.Atoi(PhoneNumberValue)
 	if err != nil {
