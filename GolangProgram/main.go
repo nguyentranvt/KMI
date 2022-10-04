@@ -11,18 +11,21 @@ import (
 
 // Name string, GenderValue string, TeamNumber int, Listfavorite []string, Listlanguage []string, MarryValue string, PhoneNumber int, Address string, GirlFriendNumber int, Introduce []string, Manager string, ManagerEmail string
 type EmployeeModel struct {
-	Name         string
-	TeamNumber   int
-	GenderValue  string
-	Listfavorite []string
-	Listlanguage []string
-	MarryValue   string
-	PhoneNumber  int
-	Address      string
-	GirlFriend   int
-	Introduce    []string
-	Manager      string
-	ManagerEmail string
+	Name            string
+	TeamNumber      int
+	GenderValue     string
+	Listfavorite    []string
+	Listlanguage    []string
+	MarryValue      string
+	PhoneNumber     int
+	Address         string
+	GirlFriend      int
+	Introduce       []string
+	Manager         string
+	ManagerEmail    string
+	ManagerReview   string
+	FavoriteCompany string
+	FreeTime        string
 }
 
 func main() {
@@ -91,23 +94,40 @@ func ReadKeyboard() (EmpInfo EmployeeModel, err error) {
 		return EmployeeModel{}, err
 	}
 
-	//Review của sếp
+	//ManagerReview
+	BufferForManagerReview, err := ReadKeyboardForManagerReview()
+	if err != nil {
+		return EmployeeModel{}, err
+	}
+	// FavoriteCompany
+	BufferForFavoriteCompany, err := ReadKeyboardForFavoriteCompany()
+	if err != nil {
+		return EmployeeModel{}, err
+	}
+	// FreeTime
+	BufferForFreeTime, err := ReadKeyboardForFreeTime()
+	if err != nil {
+		return EmployeeModel{}, err
+	}
 
 	// ReviewValue, _ := reader.ReadString('\n')
 	// return ReviewValue, 0, nil
 
 	return EmployeeModel{
-		Name:         NameValue,
-		TeamNumber:   BufferTeamNumber,
-		Listfavorite: BufferFavorite,
-		Listlanguage: BufferLanguage,
-		GenderValue:  BufferGenderValue,
-		PhoneNumber:  BufferForPhone,
-		Address:      BufferForAddress,
-		GirlFriend:   BufferForGirlFriend,
-		Introduce:    BufferForIntroduce,
-		Manager:      BufferForManager,
-		ManagerEmail: BufferForManagerEmail,
+		Name:            NameValue,
+		TeamNumber:      BufferTeamNumber,
+		Listfavorite:    BufferFavorite,
+		Listlanguage:    BufferLanguage,
+		GenderValue:     BufferGenderValue,
+		PhoneNumber:     BufferForPhone,
+		Address:         BufferForAddress,
+		GirlFriend:      BufferForGirlFriend,
+		Introduce:       BufferForIntroduce,
+		Manager:         BufferForManager,
+		ManagerEmail:    BufferForManagerEmail,
+		ManagerReview:   BufferForManagerReview,
+		FavoriteCompany: BufferForFavoriteCompany,
+		FreeTime:        BufferForFreeTime,
 	}, nil
 }
 
@@ -336,6 +356,46 @@ func ReadKeyboardForManagerEmail() (ManagerEmail string, err error) {
 	}
 	return ManagerEmailValue, nil
 }
+
+// Define ReadkeyboardforManagerReview
+func ReadKeyboardForManagerReview() (ManagerReview string, err error) {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Please input your manager review: ")
+	ManagerReviewValue, _ := reader.ReadString('\n')
+	//Check ManagerReview is empty
+	if ManagerReviewValue == "" {
+		fmt.Println("Please enter ManagerReview")
+		return "", nil
+	}
+	return ManagerReviewValue, nil
+}
+
+// Define readkeyboardforFavoriteCompany
+func ReadKeyboardForFavoriteCompany() (FavoriteCompany string, err error) {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Please input your favorite company: ")
+	FavoriteCompanyValue, _ := reader.ReadString('\n')
+	//Check FavoriteCompany is empty
+	if FavoriteCompanyValue == "" {
+		fmt.Println("Please enter FavoriteCompany")
+		return "", nil
+	}
+	return FavoriteCompanyValue, nil
+}
+
+// Define ReadkeyboardforFreetime
+func ReadKeyboardForFreeTime() (FreeTime string, err error) {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Please input your free time: ")
+	FreeTimeValue, _ := reader.ReadString('\n')
+	//Check FreeTime is empty
+	if FreeTimeValue == "" {
+		fmt.Println("Please enter FreeTime")
+		return "", nil
+	}
+	return FreeTimeValue, nil
+}
+
 func PrintDate(Date string) string {
 	return "Ngay sinh: " + Date
 }
