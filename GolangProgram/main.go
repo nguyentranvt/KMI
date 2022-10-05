@@ -117,6 +117,9 @@ func ReadKeyboard() (EmpInfo EmployeeModel, err error) {
 	}
 	//YourEmail
 	BufferForYourEmail, err := ReadKeyboardYourEmail()
+	if err != nil {
+		return EmployeeModel{}, err
+	}
 
 	// ReviewValue, _ := reader.ReadString('\n')
 	// return ReviewValue, 0, nil
