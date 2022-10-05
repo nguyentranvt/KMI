@@ -502,32 +502,3 @@ func TestPrintFavourite(t *testing.T) {
 		})
 	}
 }
-
-func TestReadKeyboardForMarry(t *testing.T) {
-	tests := []struct {
-		name      string
-		wantMarry string
-		wantErr   bool
-	}{
-		// TODO: Add test cases.
-		{
-			name: "Happy case 6",
-			args: args{
-				Marry: "Yes",
-			},
-			want: "Hon nhan: yes",
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			gotMarry, err := ReadKeyboardForMarry()
-			if (err != nil) != tt.wantErr {
-				t.Errorf("ReadKeyboardForMarry() error = %v, wantErr %v", err, tt.wantErr)
-				return
-			}
-			if gotMarry != tt.wantMarry {
-				t.Errorf("ReadKeyboardForMarry() = %v, want %v", gotMarry, tt.wantMarry)
-			}
-		})
-	}
-}
