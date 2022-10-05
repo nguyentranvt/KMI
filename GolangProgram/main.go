@@ -26,7 +26,7 @@ type EmployeeModel struct {
 	ManagerReview   string
 	FavoriteCompany string
 	FreeTime        string
-	YourEmail		   string
+	YourEmail       string
 }
 
 func main() {
@@ -140,7 +140,7 @@ func ReadKeyboard() (EmpInfo EmployeeModel, err error) {
 		FavoriteCompany: BufferForFavoriteCompany,
 		FreeTime:        BufferForFreeTime,
 		MarryValue:      BufferForMarryValue,
-		YourEmail: 		 BufferForYourEmail,
+		YourEmail:       BufferForYourEmail,
 	}, nil
 }
 
@@ -428,7 +428,8 @@ func Printfavorite(Favour []string) string {
 func PrintYourEmail(YourEmail string) string {
 	return "Email cua ban: " + YourEmail
 }
-define input ReadKeyboardYourEmail
+
+// define input ReadKeyboardYourEmail
 func ReadKeyboardYourEmail() (YourEmail string, err error) {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("Please input your email: ")
