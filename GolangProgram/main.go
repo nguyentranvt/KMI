@@ -26,6 +26,7 @@ type EmployeeModel struct {
 	ManagerReview   string
 	FavoriteCompany string
 	FreeTime        string
+	YourEmail		   string
 }
 
 func main() {
@@ -109,6 +110,16 @@ func ReadKeyboard() (EmpInfo EmployeeModel, err error) {
 	if err != nil {
 		return EmployeeModel{}, err
 	}
+	//MarryValue
+	BufferForMarryValue, err := ReadKeyboardForMarry()
+	if err != nil {
+		return EmployeeModel{}, err
+	}
+	//YourEmail
+	BufferForYourEmail, err := ReadKeyboardForYourEmail()
+	if err != nil {
+		return EmployeeModel{}, err
+	}
 
 	// ReviewValue, _ := reader.ReadString('\n')
 	// return ReviewValue, 0, nil
@@ -128,6 +139,8 @@ func ReadKeyboard() (EmpInfo EmployeeModel, err error) {
 		ManagerReview:   BufferForManagerReview,
 		FavoriteCompany: BufferForFavoriteCompany,
 		FreeTime:        BufferForFreeTime,
+		MarryValue:      BufferForMarryValue,
+		YourEmail: 		 BufferForYourEmail,
 	}, nil
 }
 
@@ -414,6 +427,18 @@ func Printfavorite(Favour []string) string {
 }
 func PrintYourEmail(YourEmail string) string {
 	return "Email cua ban: " + YourEmail
+}
+define input ReadKeyboardYourEmail
+func ReadKeyboardYourEmail() (YourEmail string, err error) {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Please input your email: ")
+	YourEmailValue, _ := reader.ReadString('\n')
+	//Check YourEmail is empty
+	if YourEmailValue == "" {
+		fmt.Println("Please enter YourEmail")
+		return "", nil
+	}
+	return YourEmailValue, nil
 }
 func PrintLanguage(YourLanguage []string) string {
 	//Define BufferList
