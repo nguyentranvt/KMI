@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"errors"
 	"fmt"
+	testlibrary "golangprogram/TestLibrary"
 	"os"
 	"strconv"
 	"strings"
@@ -37,6 +38,17 @@ func main() {
 	// }
 	// fmt.Println(PrintName(NameValue))
 	// fmt.Println(PrintTeamNumber(TeamNumberValue))
+	NewEmployyee := testlibrary.Employee{
+		FirstName: "Nguyen Van A",
+		Age:       20,
+	}
+	//Print firstname of newemployee
+	fmt.Println(NewEmployyee.FirstName)
+	NewEmployyee.FirstName = "Nguyen Van B"
+	fmt.Println(NewEmployyee.FirstName)
+	NewEmployyee.SetLastName("Nguyen Van C")
+	NewEmployyee.PrintLastName()
+
 }
 
 func ReadKeyboard() (EmpInfo EmployeeModel, err error) {
@@ -207,16 +219,6 @@ func ReadKeyboardForFavorite() (ListFavorite []string, err error) {
 	return ListFavorite, nil
 }
 
-// define input ReadKeyboardForLanguage return list of language Split by  comma
-func ReadKeyboardForLanguage() (ListLanguage []string, err error) {
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Please input language: ")
-	LanguageValue, _ := reader.ReadString('\n')
-	//convert string to list
-	ListLanguage = strings.Split(LanguageValue, ",")
-	return ListLanguage, nil
-}
-
 // define input ReadkeyboardforMarry
 func ReadKeyboardForMarry() (Marry string, err error) {
 	reader := bufio.NewReader(os.Stdin)
@@ -245,6 +247,16 @@ func PrintTeamNumber(Number int) string {
 func PrintAddress(Number int, Address string) string {
 	ValueAfterConvert1 := strconv.Itoa(Number)
 	return "Dia chi: " + Address + " So nha: " + ValueAfterConvert1
+}
+
+// define input ReadKeyboardForLanguage return list of language Split by  comma
+func ReadKeyboardForLanguage() (ListLanguage []string, err error) {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Please input language: ")
+	LanguageValue, _ := reader.ReadString('\n')
+	//convert string to list
+	ListLanguage = strings.Split(LanguageValue, ",")
+	return ListLanguage, nil
 }
 
 // define input ReadKeyboardAddress
